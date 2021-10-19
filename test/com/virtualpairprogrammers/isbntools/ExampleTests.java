@@ -28,4 +28,10 @@ public class ExampleTests {
         ValidateISBN validateISBN = new ValidateISBN();
         validateISBN.checkISBN("123456789");
     }
+
+    @Test(expected = NumberFormatException.class)
+    public void nonNumericISBNsAreNotAllowed() {
+        ValidateISBN validateISBN = new ValidateISBN();
+        validateISBN.checkISBN("helloworld");
+    }
 }
