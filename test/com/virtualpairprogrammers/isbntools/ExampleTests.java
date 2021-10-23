@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class ExampleTests {
 
@@ -21,6 +22,13 @@ public class ExampleTests {
         ValidateISBN validateISBN = new ValidateISBN();
         boolean result = validateISBN.checkISBN("0140449117");
         assertFalse(result);
+    }
+
+    @Test
+    public void ISBNNumbersEndingInAnXAreValid() {
+        ValidateISBN validateISBN = new ValidateISBN();
+        boolean result = validateISBN.checkISBN("012000030X");
+        assertTrue(result);
     }
 
     @Test(expected = NumberFormatException.class)
